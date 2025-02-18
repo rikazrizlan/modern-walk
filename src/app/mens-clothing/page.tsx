@@ -5,7 +5,7 @@ import ProductList from "@/components/ProductList";
 export default function MensClothing() {
   return (
     <div>
-      <h1>Men's Clothing</h1>
+      <h2 className='font-bold mb-8'>Men's Clothing</h2>
       <ProductList category="men's clothing" />
     </div>
   );

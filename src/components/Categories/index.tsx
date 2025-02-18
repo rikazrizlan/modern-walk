@@ -8,27 +8,37 @@ interface FlashSaleProps {
 const categories: any[] = [
     {
         name: 'Men\'s Clothing',
-        color: 'bg-blue-500',
+        color: '#2BD9AF',
         link: '/mens-clothing'
     },
     {
         name: 'Women\'s Clothing',
-        color: 'bg-red-500',
+        color: '#FF5E84',
         link: '/womens-clothing'
-    }    
+    }
 ]
 
 const Categories = () => {
     return (
-        <div className='grid grid-cols-2 gap-1 w-full'>
-            {
-                categories.map((item: any, index: number) => (
-                    <Link href={item.link} key={index} className={`flex justify-center items-center w-1/2 h-100 ${item.color}`}>
-                        {item.name}
-                    </Link>
-                ))
-            }
+        <div className="mt-20">
+            <h2 className='font-bold mb-8'>Categories</h2>
+            <div className='grid sm:grid-cols-2 gap-4 w-full'
+            >
+
+                {
+                    categories.map((item: any, index: number) => (
+                        <Link href={item.link} key={index}>
+                            <div
+                                style={{ background: item.color, borderRadius: 50 }}
+                                className={`flex justify-center items-center w-full h-80`}>
+                                <p className='font-bold xs:text-xl md:text-3xl lg:text-5xl text-white'>{item.name}</p>
+                            </div>
+                        </Link>
+                    ))
+                }
+            </div>
         </div>
+
     );
 };
 

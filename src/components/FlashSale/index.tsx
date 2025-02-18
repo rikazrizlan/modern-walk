@@ -1,14 +1,10 @@
 import Product from '../Product';
 import ProductList from '../ProductList';
 
-interface FlashSaleProps {
-    products: any;
-}
-
-const FlashSale: React.FC<FlashSaleProps> = () => {
+const FlashSale = () => {
     return (
         <div>
-            <h2>Flash Sale</h2>
+            <h2 className='font-bold mb-8'>Flash Sale</h2>
             <ProductList />
         </div>
     );

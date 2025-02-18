@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState, ReactNode } from 'react';
+import { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 
 interface AppContextProps {
     products: any;
@@ -11,6 +11,20 @@ const AppContext = createContext<AppContextProps | undefined>(undefined);
 
 export const AppProvider = ({ children }: { children: ReactNode }) => {
     const [products, setProducts] = useState<any>([]);
+
+    useEffect(() => {
+        const fetchProducts = async () => {
+            try {
+                const response = await fetch("https://fakestoreapi.com/products");
+                const data = await response.json();
+                setProducts(data);
+            } catch (error) {
+                console.error("Error fetching products:", error);
+            }
+        };
+
+        fetchProducts();
+    }, []);
 
     return (
         <AppContext.Provider value={{ products, setProducts }}>
