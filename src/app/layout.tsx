@@ -30,8 +30,8 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <AppProvider>
-          <div className="flex justify-center items-center top-10 h-10 bg-white shadow-lg w-full">
-            <Link href="/">Modern Walk</Link>
+          <div style={{ height: 60}} className="flex justify-center items-center top-10 bg-white shadow-lg w-full">
+            <Link className="font-bold text-lg" href="/">Modern Walk</Link>
           </div>
 
           <div className="p-10">

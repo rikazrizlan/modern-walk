@@ -13,18 +13,18 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
     const [products, setProducts] = useState<any>([]);
 
     useEffect(() => {
-        const fetchProducts = async () => {
-            try {
-                const response = await fetch("https://fakestoreapi.com/products");
-                const data = await response.json();
-                setProducts(data);
-            } catch (error) {
-                console.error("Error fetching products:", error);
-            }
-        };
-
         fetchProducts();
     }, []);
+
+    const fetchProducts = async () => {
+        try {
+            const response = await fetch("https://fakestoreapi.com/products");
+            const data = await response.json();
+            setProducts(data);
+        } catch (error) {
+            console.error("Error fetching products:", error);
+        }
+    };
 
     return (
         <AppContext.Provider value={{ products, setProducts }}>
